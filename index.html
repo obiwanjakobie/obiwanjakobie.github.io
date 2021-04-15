@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>notpaper</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="main">
@@ -17,12 +16,6 @@
 </html>
 
 <script>
-    if(typeof Waves !== 'undefined'){
-        console.log('installed')
-    }else{
-        console.log('not installed')
-    }
-    
     function sendData() {
     const text = document.querySelector(".data").value;
     let data = text.split("\n");
