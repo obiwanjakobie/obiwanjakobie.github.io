@@ -1,29 +1,3 @@
-<script>
-    window.WavesKeeper = Waves;
-
-    $('document').ready(function () {
-        if (typeof Waves !== 'undefined') {
-            console.log('installed')
-        } else {
-            console.log('not installed')
-        }
-        $('.auth-btn').on('click', function (e) {
-            WavesKeeper.auth({ name: 'Your App', data: 'Any stuff' })
-                .then(function (res) {
-                    console.log(res);
-                    $('#address')
-                        .html('Your WAVES Address: <b>' + res.address + '</b>')
-                        .removeClass('alert-danger').addClass('alert-success');
-                })
-                .catch(function (err) {
-                    $('#address').html(JSON.stringify(err)).removeClass('alert-success').addClass('alert-danger');
-                });
-            e.preventDefault();
-        });
-
-    });
-</script>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,39 +10,34 @@
     <div class="main">
         <h1>store <strong>certificado</strong><br>into blockchain</h1>
         <textarea class="data" name="data" id="" cols="30" rows="3">1 Sasha Ivanov</textarea><br>
-        <a class="btn btn-primary btn-rounded auth-btn" href="#">Click to get WAVES Address</a>
-        <div class="alert alert-success" id="address"></div>
+        <button onclick="console.log(sendData());">send!</button><br><br><br>
         <div>certificado can be verified at <a href="check.html">/check</a></div>
     </div>
 </body>
 </html>
-<!--
-    <script>
-        window.WavesKeeper = Waves;
-        if(typeof Waves !== 'undefined'){
-            console.log('installed')
-        }else{
-            console.log('not installed')
-        }
-        
-        function sendData() {
-        const text = document.querySelector(".data").value;
-        let data = text.split("\n");
-        data = data.map(function(x) { return {"key": x.split(" ")[0], "value": x, "type": "string"}} );
-        const tx = {
-            type: 12, // data transaction
-            data: {
-                data: data,
-                fee: {
-                    "tokens": "0.001",
-                    "assetId": "WAVES"
-                }
+
+<script>
+    if(typeof Waves !== 'undefined'){
+        console.log('installed')
+    }else{
+        console.log('not installed')
+    }
+    
+    function sendData() {
+    const text = document.querySelector(".data").value;
+    let data = text.split("\n");
+    data = data.map(function(x) { return {"key": x.split(" ")[0], "value": x, "type": "string"}} );
+    const tx = {
+        type: 12, // data transaction
+        data: {
+            data: data,
+            fee: {
+                "tokens": "0.001",
+                "assetId": "WAVES"
             }
-        };
-        WavesKeeper.signAndPublishTransaction(tx);
-        return text;
         }
-    </script>
-
--->
-
+    };
+    WavesKeeper.signAndPublishTransaction(tx);
+    return text;
+    }
+</script>
