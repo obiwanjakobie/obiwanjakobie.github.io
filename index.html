@@ -16,6 +16,13 @@
 </html>
 
 <script>
+    if(typeof waves !== 'undefined'){
+        console.log('installed')
+    }else{
+        console.log('not installed')
+    }
+        
+    
     function sendData() {
     const text = document.querySelector(".data").value;
     let data = text.split("\n");
