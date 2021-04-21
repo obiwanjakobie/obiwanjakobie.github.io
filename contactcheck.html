@@ -19,7 +19,8 @@
     const text = document.querySelector(".data").value.split("\n")[0];
     const certificateId = text.split(" ")[0];
  //   console.log(WavesKeeper.accountDataByKey(certificateId,"3N29PDa7Qa8Cc1nJSMnVhpc8Map6Z3Vmsgi", "https://nodes-testnet.wavesnodes.com"));
-
+    console.log(certificateId);
+    console.log(text.split(" ")[1]);
     const xhr = new XMLHttpRequest();
     xhr.open("GET", "https://nodes-testnet.wavesnodes.com/addresses/data/3N29PDa7Qa8Cc1nJSMnVhpc8Map6Z3Vmsgi/"+certificateId);
     xhr.onload  = function() {
