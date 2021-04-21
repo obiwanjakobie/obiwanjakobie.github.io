@@ -7,10 +7,10 @@
 </head>
 <body>
     <div class="main">
-        <h1>store contac t<br>into blockchain</h1>
+        <h1>store contact<br>into blockchain</h1>
         <textarea class="data" name="data" id="" cols="30" rows="3">Insert blockchain here</textarea><br>
         <button onclick="console.log(sendData());">send!</button><br><br><br>
-        <div>If you need to check a contact click here: <a href="check.html">/check</a></div>
+        <div>If you need to check a contact click here: <a href="contactcheck.html">/check</a></div>
     </div>
 </body>
 </html>
@@ -26,8 +26,7 @@
     function sendData() {
     const text = document.querySelector(".data").value;
     let data = text;
-    let myTimeStamp = Date.now();
-    let myDate = new date(parseInt(myTimeStamp));
+    let myDate = new Date();
     console.log(myDate);
     data = data.map(function(x) { return {"Chain": x, "Datetime": myDate, "type": "string"}} );
     const tx = {
