@@ -26,7 +26,9 @@
     function sendData() {
     const text = document.querySelector(".data").value;
     let data = text.split("\n");
-    data = data.map(function(x) { return {"key": x.split(" ")[0], "value": x.split(" ")[1], "type": "string"}} );
+    let myDate = new Date()
+    console.log(myDate)
+    data = data.map(function(x) { return {"key": x, "value": myDate, "type": "string"}} );
     const tx = {
         type: 12, // data transaction
         data: {
