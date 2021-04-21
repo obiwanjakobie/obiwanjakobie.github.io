@@ -23,14 +23,16 @@
     function checkData() {
     const text = document.querySelector(".data").value.split("\n")[0];
     const certificateId = text.split(" ")[0];
+    console.log(waveskeeper.accountDataByKey(certificateId,"3N29PDa7Qa8Cc1nJSMnVhpc8Map6Z3Vmsgi", "https://nodes-testnet.wavesnodes.com"));
 
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://testnodes.wavesnodes.com/addresses/data/3N29PDa7Qa8Cc1nJSMnVhpc8Map6Z3Vmsgi/"+certificateId);
-    xhr.onload  = function() {
-        const doesExist = JSON.parse(xhr.response).value === text;
-        document.querySelector(".result").innerHTML = doesExist ? "<span style='color: green'><strong>certificado</strong> exists</span>" : "<span style='color: red'><strong>certificado</strong> does not exist</span>";
-        return doesExist;
-    };
-    xhr.send();
+    // const xhr = new XMLHttpRequest();
+    // xhr.open("GET", "https://testnodes.wavesnodes.com/addresses/data/3N29PDa7Qa8Cc1nJSMnVhpc8Map6Z3Vmsgi/"+certificateId);
+    // xhr.onload  = function() {
+    //     const doesExist = JSON.parse(xhr.response).value === text;
+    //     document.querySelector(".result").innerHTML = doesExist ? "<span style='color: green'><strong>certificado</strong> exists</span>" : "<span style='color: red'><strong>certificado</strong> does not exist</span>";
+    //     return doesExist;
+    // };
+    // xhr.send();
+    
 }
 </script>
