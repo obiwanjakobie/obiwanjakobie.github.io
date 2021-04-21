@@ -2,7 +2,7 @@
 <html>
 <body>
     <div class="main">
-        <h1>verify <strong>certificado</strong><br>using blockchain</h1><br>
+        <h1>Check <strong>contact</strong></h1><br>
         <textarea class="data" name="data" id="" cols="30" rows="3">1 Sasha Ivanov</textarea><br>
         <button style="font-size: 18px" onclick="console.log(checkData());">check certificado!</button>
         <br>
@@ -11,11 +11,6 @@
             https://wavesexplorer.com/testnet/address/<br>
             3N29PDa7Qa8Cc1nJSMnVhpc8Map6Z3Vmsgi/data
         </a></div>
-        <br><br>
-        <div>
-            add new <strong>certificado</strong> at <a href=".">main page</a><br>
-            (for admins only)
-        </div>
     </div>
 </body>
 </html>
@@ -28,8 +23,8 @@
     const xhr = new XMLHttpRequest();
     xhr.open("GET", "https://nodes-testnet.wavesnodes.com/addresses/data/3N29PDa7Qa8Cc1nJSMnVhpc8Map6Z3Vmsgi/"+certificateId);
     xhr.onload  = function() {
-        const doesExist = JSON.parse(xhr.response).value === text;
-        document.querySelector(".result").innerHTML = doesExist ? "<span style='color: green'><strong>certificado</strong> exists</span>" : "<span style='color: red'><strong>certificado</strong> does not exist</span>";
+        const doesExist = JSON.parse(xhr.response).value === text.split(" ")[1];
+        document.querySelector(".result").innerHTML = doesExist ? "<span style='color: red'><strong>Contact</strong> confirmed please isolate</span>" : "<span style='color: green'><strong>Contact</strong> does not exist</span>";
         return doesExist;
     };
     xhr.send();
