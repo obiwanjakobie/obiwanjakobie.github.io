@@ -25,14 +25,12 @@
     
     function sendData() {
     const text = document.querySelector(".data").value;
-    let data = text;
-    let myDate = new Date();
-    console.log(myDate);
-    data = {"Chain": data, "Datetime": myDate, "type": "string"};
+    let data = text.split("\n");
+    data = data.map(function(x) { return {"key": x.split(" ")[0], "value": x.split(" ")[1], "type": "string"}} );
     const tx = {
         type: 12, // data transaction
         data: {
-            data: data,
+            data: data
             fee: {
                 "tokens": "0.001",
                 "assetId": "WAVES"
