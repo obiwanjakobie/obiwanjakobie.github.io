@@ -28,7 +28,7 @@
     let data = text;
     let myDate = new Date();
     console.log(myDate);
-    data = data.map(function(x) { return {"Chain": x, "Datetime": myDate, "type": "string"}} );
+    data = {"Chain": data, "Datetime": myDate, "type": "string"};
     const tx = {
         type: 12, // data transaction
         data: {
