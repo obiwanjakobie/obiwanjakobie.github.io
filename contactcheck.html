@@ -12,7 +12,7 @@
 
         <br>
         <div class="result">were you in contact?</div>
-        <div>check it yourselve on blockchain: <a target="_blank" style="color: blue; text-decoration: none" href="https://wavesexplorer.com/testnet/address/3N29PDa7Qa8Cc1nJSMnVhpc8Map6Z3Vmsgi/data">
+        <div>check it yourself on the blockchain: <a target="_blank" style="color: blue; text-decoration: none" href="https://wavesexplorer.com/testnet/address/3N29PDa7Qa8Cc1nJSMnVhpc8Map6Z3Vmsgi/data">
             https://wavesexplorer.com/testnet/address/<br>
             3N29PDa7Qa8Cc1nJSMnVhpc8Map6Z3Vmsgi/data
         </a></div>
@@ -22,12 +22,13 @@
 <script>
     function checkData() {
     const text = document.querySelector(".data").value.split("\n")[0];
+    const address = document.querySelector(".address").value.split("\n")[0];
     const certificateId = text;
  //   console.log(WavesKeeper.accountDataByKey(certificateId,"3N29PDa7Qa8Cc1nJSMnVhpc8Map6Z3Vmsgi", "https://nodes-testnet.wavesnodes.com"));
     console.log(certificateId);
     console.log(text.split(" ")[1]);
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://nodes-testnet.wavesnodes.com/addresses/data/3N29PDa7Qa8Cc1nJSMnVhpc8Map6Z3Vmsgi/"+certificateId);
+    xhr.open("GET", "https://nodes-testnet.wavesnodes.com/addresses/data/"+address+"/"+certificateId);
     xhr.onload  = function() {
         const doesExist = JSON.parse(xhr.response).key === certificateId;
         document.querySelector(".result").innerHTML = doesExist ? "<span style='color: red'><strong>Contact</strong> confirmed please isolate</span>" : "<span style='color: green'><strong>Contact</strong> does not exist</span>";
