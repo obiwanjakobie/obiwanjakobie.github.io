@@ -32,9 +32,6 @@
     function sendData() {
     const text = document.querySelector(".data").value;
     let data = text.split("\n");
-    let myDate = new Date()
-    console.log(myDate)
-    data = data.map(function(x) { return {"key": x, "value": myDate, "type": "string"}} );
     const tx = {
         type: 4, // transfer transaction
         data: {
@@ -46,7 +43,7 @@
                 "tokens": "0.001",
                 "assetId": "WAVES"
             },
-            recipient:
+            recipient: data
         }
     };
     WavesKeeper.signAndPublishTransaction(tx);
