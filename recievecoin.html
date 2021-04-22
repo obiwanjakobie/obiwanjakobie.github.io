@@ -30,8 +30,7 @@
         
     
     function sendData() {
-    const text = document.querySelector(".data").value;
-    let data = text.split("\n");
+    const data = document.querySelector(".data").value;
     const tx = {
         type: 4, // transfer transaction
         data: {
